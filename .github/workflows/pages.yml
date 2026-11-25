@@ -19,5 +19,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+      # Give GitHub's artifact metadata API a moment to index the upload.
+      - name: Wait for Pages artifact indexing
+        run: sleep 15
       - id: deployment
         uses: actions/deploy-pages@v4
